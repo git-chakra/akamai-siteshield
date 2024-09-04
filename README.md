@@ -49,43 +49,12 @@ Updates all security groups with the latest Akamai CIDR blocks.
 **Diagram**
 -----------
 
-                                  +---------------+
-                                  |  Akamai API  |
-                                  +---------------+
-                                         |
-                                         |
-                                         v
-                                  +---------------+
-                                  |  akamai_getcidr  |
-                                  |  (retrieve CIDR  |
-                                  |   blocks from Akamai) |
-                                  +---------------+
-                                         |
-                                         |
-                                         v
-                                  +---------------+
-                                  | describe_security_groups |
-                                  |  (describe security groups  |
-                                  |   with tag SecureCIDRs)    |
-                                  +---------------+
-                                         |
-                                         |
-                                         v
-                                  +---------------+
-                                  |  get_cidronSG      |
-                                  |  (retrieve current CIDR  |
-                                  |   blocks for each group)  |
-                                  +---------------+
-                                         |
-                                         |
-                                         v
-                                  +---------------+
-                                  | update_security_groups  |
-                                  |  (update security groups  |
-                                  |   with new CIDR blocks)    |
-                                  +---------------+
-
-
+graph LR
+    A[Akamai API] -->|retrieve CIDR blocks|> B[akamai_getcidr]
+    B -->|describe security groups|> C[describe_security_groups]
+    C -->|get current CIDR blocks|> D[get_cidronSG]
+    D -->|update security groups|> E[update_security_groups]
+    
 
 **Usage**
 ---------
