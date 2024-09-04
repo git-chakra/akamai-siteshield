@@ -50,10 +50,10 @@ Updates all security groups with the latest Akamai CIDR blocks.
 -----------
 ```mermaid
 graph TD;
-    A[Akamai API] -->|retrieve CIDR blocks|> B[akamai_getcidr];
-    B -->|describe security groups|> C[describe_security_groups];
-    C -->|get current CIDR blocks|> D[get_cidronSG];
-    D -->|update security groups|> E[update_security_groups];
+    A[Akamai API] -->|retrieve CIDR blocks|> B[akamai_getcidr]
+    B -->|describe security groups|> C[describe_security_groups]
+    C -->|get current CIDR blocks|> D[get_cidronSG]
+    D -->|update security groups|> E[update_security_groups]
 ```
 
 **Usage**
